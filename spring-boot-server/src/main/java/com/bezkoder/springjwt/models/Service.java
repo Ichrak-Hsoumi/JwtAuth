@@ -31,7 +31,7 @@ public class Service {
     @JsonIgnore
     private List<Guichet> guichets;
 
-/*    @OneToMany(mappedBy ="service", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="service", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Client> clients;*/
+    private List<User> clients;
 }

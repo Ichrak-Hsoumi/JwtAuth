@@ -27,7 +27,7 @@ public class Ticket {
     @JoinColumn(name = "Id_Guichet")
     private Guichet guichet;
 
-/*    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "Id_Client")
-    private Client client;*/
+    private User client;
 }

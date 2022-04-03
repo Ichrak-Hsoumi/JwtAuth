@@ -1,7 +1,7 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand"> AGIL
-      <img src="../assets/favicon.png" height="50" alt="">
+      <img src="../assets/agil.png" height="50" alt="">
     </a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
@@ -15,6 +15,9 @@
       </li>
       <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+      <li class="nav-item">
+        <a href="/articles" class="nav-link" *ngIf="isLoggedIn" routerLink="articles">Articles</a>
       </li>
     </ul>
 

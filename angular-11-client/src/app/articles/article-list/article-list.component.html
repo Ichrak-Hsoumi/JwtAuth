@@ -1,0 +1,54 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title mt-0"> Articles</h4>
+                        <a href="#" [routerLink]="['/addArticle']" class="btn btn-primary">Create New Article</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Title 
+                                    </th>
+                                    <th>
+                                        Content
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let article of articles">
+                                        <td>
+                                            {{ article.id }}
+                                        </td>
+                                        <td>
+                                            {{ article.title}}
+                                        </td>
+                                        <td>
+                                            {{ article.contenu }}
+                                        </td>
+                                        <td>
+                                            <a href="#" [routerLink]="['/article/', article.id, 'view']" class="btn btn-info">View</a> |
+                                            <a href="#" [routerLink]="['/article/', article.id, 'edit']" class="btn btn-success">Edit</a> |
+                                            <button type="button" (click)="deletePost(article.id)" class="btn btn-danger">Delete</button>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

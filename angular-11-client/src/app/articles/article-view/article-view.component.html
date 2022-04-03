@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>View Article</h1>
+  
+    <a href="#" [routerLink]="['/articles']" class="btn btn-primary">Back</a>
+   
+    <div>
+        <strong>ID:</strong>
+        <p>{{ article.id }}</p>
+    </div>
+   
+    <div>
+        <strong>Title:</strong>
+        <p>{{ article.title }}</p>
+    </div> 
+   
+    <div>
+        <strong>Contenu:</strong>
+        <p>{{ article.contenu }}</p>
+    </div>
+
+    <a href="#" [routerLink]="['/article/', article.id, 'edit']" class="btn btn-success">Edit</a>
+   
+</div>
+

@@ -1,11 +1,13 @@
 package com.bezkoder.springjwt.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -63,6 +65,25 @@ public class User {
 				joinColumns = @JoinColumn(name = "user_id"), 
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
+
+
+	//Client
+	@ManyToOne
+	@JoinColumn(name = "Id_Service")
+	private  Service service;
+
+	@OneToMany(mappedBy ="client", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Ticket> tickets;
+
+	//Agent
+	@OneToOne
+	private Guichet guichet;
+
+	//Admin
+	@OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Article> articles;
 
 
 

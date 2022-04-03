@@ -17,9 +17,12 @@ public class Article {
     private Long id;
 
     @NotBlank
+    private String title;
+
+    @NotBlank
     private String contenu;
 
-/*    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "Id_Admin")
-    private  Admin admin;*/
+    private  User admin;
 }

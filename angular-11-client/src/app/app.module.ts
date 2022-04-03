@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,12 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { ArticleFormComponent } from './articles/article-form/article-form.component';
+import { ArticleListComponent } from './articles/article-list/article-list.component';
+import { ArticleEditComponent } from './articles/article-edit/article-edit.component';
+import { ArticleViewComponent } from './articles/article-view/article-view.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 
 @NgModule({
   declarations: [
@@ -24,12 +30,19 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    ArticleFormComponent,
+    ArticleListComponent,
+    ArticleEditComponent,
+    ArticleViewComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
+    SidebarModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [authInterceptorProviders],
