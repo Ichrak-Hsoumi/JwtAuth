@@ -32,6 +32,7 @@ public class ArticleController {
 
     @PostMapping
     public void createArticle(@RequestBody Article article) {
+
         articleService.createArticle(article);
     }
 

@@ -31,7 +31,7 @@ public class Guichet {
 
     @ManyToOne
     @JoinColumn(name = "Id_Service")
-    private Service service;
+    private Services service;
 
     @ManyToOne
     @JoinColumn(name = "Id_Ecran")

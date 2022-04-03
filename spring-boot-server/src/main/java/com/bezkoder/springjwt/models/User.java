@@ -1,7 +1,6 @@
 package com.bezkoder.springjwt.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -70,7 +69,7 @@ public class User {
 	//Client
 	@ManyToOne
 	@JoinColumn(name = "Id_Service")
-	private  Service service;
+	private Services service;
 
 	@OneToMany(mappedBy ="client", cascade = CascadeType.ALL)
 	@JsonIgnore
