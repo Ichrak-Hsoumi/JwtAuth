@@ -3,6 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,8 +25,8 @@ import { ArticleFormComponent } from './articles/article-form/article-form.compo
 import { ArticleListComponent } from './articles/article-list/article-list.component';
 import { ArticleEditComponent } from './articles/article-edit/article-edit.component';
 import { ArticleViewComponent } from './articles/article-view/article-view.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,8 +41,7 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
     ArticleFormComponent,
     ArticleListComponent,
     ArticleEditComponent,
-    ArticleViewComponent,
-    SidebarComponent
+    ArticleViewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,14 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatFormFieldModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

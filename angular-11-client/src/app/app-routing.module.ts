@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'article/:articleId/view', component: ArticleViewComponent },
   { path: 'addArticle', component: ArticleFormComponent },
   { path: 'article/:articleId/edit', component: ArticleEditComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,46 +1,70 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand"> AGIL
-      <img src="../assets/agil.png" height="50" alt="">
-    </a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
-      <li class="nav-item">
-        <a href="/articles" class="nav-link" *ngIf="isLoggedIn" routerLink="articles">Articles</a>
-      </li>
-    </ul>
+<mat-toolbar class="navbar navbar-expand navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">
+    <img src="../assets/agil.png" height="50" alt="">
+  </a>
+  <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+    <li class="nav-item">
+      <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a href="/login" class="nav-link" routerLink="login">Login</a>
+    </li>
+  </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
+  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+    </li> 
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</mat-toolbar>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened  *ngIf="isLoggedIn">
+    <img
+      class="avatar mat-elevation-z8"
+      src="../assets/ag.jpg"
+    />
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+    <!-- <h4 class="name">John Smith</h4>
+    <p class="designation">Software Engineer</p> -->
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" *ngIf="showAdminBoard" routerLink="admin">
+      <mat-icon>person</mat-icon>
+      <span>Admin Board</span>
+    </button>
+    <button mat-button class="menu-button" *ngIf="showModeratorBoard" routerLink="mod">
+      <mat-icon>supervisor_account</mat-icon>
+      <span>Moderator Board</span>
+    </button>
+    <button mat-button class="menu-button" *ngIf="isLoggedIn" routerLink="user">
+      <mat-icon>supervised_user_circle</mat-icon>
+      <span>User</span>
+    </button>
+    <button mat-button class="menu-button" *ngIf="showAdminBoard" routerLink="articles">
+      <mat-icon>book</mat-icon>
+      <span>Articles</span>
+    </button>
+    
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="profile">
+      <mat-icon>face</mat-icon>
+      <span>Profile</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
